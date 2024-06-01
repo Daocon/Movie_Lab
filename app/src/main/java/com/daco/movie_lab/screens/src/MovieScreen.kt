@@ -1,6 +1,5 @@
 package com.daco.movie_lab.screens.src
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -22,8 +21,8 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.daco.movie_lab.model.Movie
 import com.daco.movie_lab.screens.components.ListType
 import com.daco.movie_lab.screens.components.MovieColumnItem
@@ -31,8 +30,8 @@ import com.daco.movie_lab.screens.components.MovieItem
 
 @Composable
 fun MovieScreen(movies: List<Movie>) {
-    val viewModel : MainViewModel = viewModel()
     var listType by remember { mutableStateOf(ListType.ROW) }
+    val viewModel: MainViewModel = viewModel()
     Column {
         Row(
             modifier = Modifier.padding(8.dp).fillMaxWidth(),
