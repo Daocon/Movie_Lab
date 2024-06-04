@@ -1,4 +1,4 @@
-package com.daco.movie_lab.screens.src
+package com.daco.movie_lab.src.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -18,20 +18,24 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.daco.movie_lab.model.Movie
-import com.daco.movie_lab.screens.components.ListType
-import com.daco.movie_lab.screens.components.MovieColumnItem
-import com.daco.movie_lab.screens.components.MovieItem
+import com.daco.movie_lab.src.components.ListType
+import com.daco.movie_lab.src.components.MovieColumnItem
+import com.daco.movie_lab.src.components.MovieItem
+import com.daco.movie_lab.src.screen.main.MovieViewModel
 
 @Composable
-fun MovieScreen(movies: List<Movie>) {
+fun MovieScreen() {
     var listType by remember { mutableStateOf(ListType.ROW) }
-    val viewModel: MainViewModel = viewModel()
+    val movieViewModel: MovieViewModel = viewModel()
+    val moviesState = movieViewModel.movies.observeAsState(initial = emptyList())
+    val movies = moviesState.value
     Column {
         Row(
             modifier = Modifier.padding(8.dp).fillMaxWidth(),

@@ -1,4 +1,4 @@
-package com.daco.movie_lab.screens.src
+package com.daco.movie_lab.src.screen
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -19,7 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.daco.movie_lab.model.Seat
 import com.daco.movie_lab.model.SeatStatus
-import com.daco.movie_lab.screens.components.SeatComposable
+import com.daco.movie_lab.src.components.SeatComposable
 import com.daco.movie_lab.utils.createTheaterSeating
 
 @Composable
@@ -85,7 +85,7 @@ const val totalSeatsPerRow = 9
 const val aislePositionInRow = 4
 const val aislePositionInColumn = 5
 
-@Preview
+@Preview(showBackground = true)
 @Composable
 fun PreviewCinemaSeatBooking() {
     CinemaSeatBookingScreen(

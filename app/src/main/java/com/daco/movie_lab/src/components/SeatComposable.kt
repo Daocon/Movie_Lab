@@ -1,4 +1,4 @@
-package com.daco.movie_lab.screens.components
+package com.daco.movie_lab.src.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
